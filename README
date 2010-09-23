@@ -1,0 +1,22 @@
+TypeSafe Validation
+================================================================================
+
+Validation framework which can validate method call inputs via @validate
+annotations.
+
+
+Module to install:
+--------------------------------------------------------------------------------
+TypeSafe/validation/ValidationModule.php
+
+
+Usage:
+--------------------------------------------------------------------------------
+
+/**
+ * @param string $text
+ * @validate IsText
+ */
+public function setText($text) {
+    /* ... */
+}
