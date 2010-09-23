@@ -94,5 +94,8 @@ class ValidationInterceptor implements Interceptor {
 
             $index++;
         }
+
+        // all right, go on
+        return $chain->proceed();
     }
 }
