@@ -86,4 +86,16 @@ class ValidationModel {
      */
     public function validateNotNull($value) {}
 
+
+    /**
+     * @param  $value1
+     * @param  $value2
+     * @return void
+     * @validate NotEmpty
+     * @validate $value1 MinNumber number=1
+     * @validate $value1 MaxNumber number=3
+     * @validate $value2 Match pattern=/(.*)test(.*)/
+     */
+    public function validateMultipleValues($value1, $value2) {}
+
 }

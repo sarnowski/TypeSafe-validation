@@ -110,6 +110,36 @@ class ValidationTest extends PHPUnit_Framework_TestCase implements Module {
             $this->assertTrue(false, "previous method call should have thrown an exception");
         } catch (ValidationException $e) {
         }
+
+        // Multiple things..
+        $model->validateMultipleValues(1, "test");
+        $model->validateMultipleValues(2, "atestb");
+        $model->validateMultipleValues(3, "! test ?");
+        try {
+            $model->validateMultipleValues(0, "test");
+            $this->assertTrue(false, "previous method call should have thrown an exception");
+        } catch (ValidationException $e) {
+        }
+        try {
+            $model->validateMultipleValues(4, "test");
+            $this->assertTrue(false, "previous method call should have thrown an exception");
+        } catch (ValidationException $e) {
+        }
+        try {
+            $model->validateMultipleValues(1, "tst");
+            $this->assertTrue(false, "previous method call should have thrown an exception");
+        } catch (ValidationException $e) {
+        }
+        try {
+            $model->validateMultipleValues(1, "");
+            $this->assertTrue(false, "previous method call should have thrown an exception");
+        } catch (ValidationException $e) {
+        }
+        try {
+            $model->validateMultipleValues(0, "");
+            $this->assertTrue(false, "previous method call should have thrown an exception");
+        } catch (ValidationException $e) {
+        }
     }
 
 }
