@@ -26,7 +26,7 @@ require_once('TypeSafe/validation/ValidationException.php');
 class NotEmptyValidator implements Validator {
 
     public function validate($value, $parameters) {
-        if (empty($value)) {
+        if (empty($value) && $value !== "0") {
             throw new ValidationException($value, $parameters, "Value must not be empty");
         }
     }
