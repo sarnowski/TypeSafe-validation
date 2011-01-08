@@ -37,19 +37,19 @@ require_once('TypeSafe/validation/validators/NotNullValidator.php');
 class ValidationModule implements Module {
 
     public function configure(Binder $binder) {
-        $binder->bind('ValidationService')->to('DefaultValidationService')->inRequestScope();
+        $binder->bind('ValidationService')->to('DefaultValidationService');
 
-        $binder->bind('ValidationInterceptor')->inRequestScope();
+        $binder->bind('ValidationInterceptor');
         $binder->interceptWith('ValidationInterceptor')->on(new ValidationPointcut());
 
-        $binder->bind('Validator')->annotatedWith('IsNumeric')->to('IsNumericValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('IsText')->to('IsTextValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('Match')->to('MatchValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('MaxNumber')->to('MaxNumberValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('MaxText')->to('MaxTextValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('MinNumber')->to('MinNumberValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('MinText')->to('MinTextValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('NotEmpty')->to('NotEmptyValidator')->inRequestScope();
-        $binder->bind('Validator')->annotatedWith('NotNull')->to('NotNullValidator')->inRequestScope();
+        $binder->bind('Validator')->annotatedWith('IsNumeric')->to('IsNumericValidator');
+        $binder->bind('Validator')->annotatedWith('IsText')->to('IsTextValidator');
+        $binder->bind('Validator')->annotatedWith('Match')->to('MatchValidator');
+        $binder->bind('Validator')->annotatedWith('MaxNumber')->to('MaxNumberValidator');
+        $binder->bind('Validator')->annotatedWith('MaxText')->to('MaxTextValidator');
+        $binder->bind('Validator')->annotatedWith('MinNumber')->to('MinNumberValidator');
+        $binder->bind('Validator')->annotatedWith('MinText')->to('MinTextValidator');
+        $binder->bind('Validator')->annotatedWith('NotEmpty')->to('NotEmptyValidator');
+        $binder->bind('Validator')->annotatedWith('NotNull')->to('NotNullValidator');
     }
 }
